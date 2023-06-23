@@ -23,5 +23,4 @@ public class ProveedorEntity {
     private String nombre;
     private String categoria;
     private String retencion;
-    private boolean deleted = Boolean.FALSE;
 }
