@@ -49,5 +49,5 @@ tasks.named('test') {
 }
 
 run{
-	mainClassName = 'cl.tingeso.proveedorservice.ProveedorServiceApplication'
+	mainClassName = 'cl.tingeso.acopioservice.AcopioServiceApplication'
 }
