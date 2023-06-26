@@ -39,4 +39,8 @@ public class AcopioDataService{
         return this.acopioDataRepository.findAcopiosByCodigo(codigo);
     }
 
+    public List<AcopioDataEntity> obtenerAcopiosProveedorPorFecha(String codigo, String fecha){
+        return this.acopioDataRepository.findAcopiosDeProveedorByFecha(codigo, fecha);
+    }
+
 }

@@ -21,4 +21,9 @@ public interface AcopioDataRepository extends JpaRepository<AcopioDataEntity, Lo
     //encontrar acopios por proveedor
     @Query("SELECT a FROM AcopioDataEntity a WHERE a.proveedor = :codigo")
     List<AcopioDataEntity> findAcopiosByCodigo(@Param("codigo") String codigo);
+
+    //encontrar acopios por fecha de un determinado proveedor
+    @Query("SELECT a FROM AcopioDataEntity a WHERE a.proveedor = :codigo and a.fecha = :fecha")
+    List<AcopioDataEntity> findAcopiosDeProveedorByFecha(@Param("codigo") String codigo, @Param("fecha") String fecha);
+
 }

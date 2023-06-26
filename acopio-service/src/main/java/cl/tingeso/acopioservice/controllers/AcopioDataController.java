@@ -44,6 +44,17 @@ public class AcopioDataController {
         return ResponseEntity.ok(acopios);
     }
 
+    @GetMapping("/acopios/{codigo}/{fecha}")
+    public ResponseEntity<List<AcopioDataEntity>> getAcopiosProveedorByDate(@PathVariable("codigo") String codigo,
+                                                                               @PathVariable("fecha") String fecha) {
+        List<AcopioDataEntity> acopios = acopioDataService.obtenerAcopiosProveedorPorFecha(codigo, fecha);
+        if(acopios.isEmpty()){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(acopios);
+    }
+
+
     @PostMapping("/acopios/new")
     public String createAcopio(@RequestParam("fecha") String fecha,
                                @RequestParam("turno") String turno,
