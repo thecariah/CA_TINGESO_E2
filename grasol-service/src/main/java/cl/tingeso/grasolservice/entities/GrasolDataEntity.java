@@ -15,8 +15,10 @@ import javax.persistence.*;
 public class GrasolDataEntity {
     @Id
     @NotNull
-    private String proveedor;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    private String proveedor;
     private String ptj_grasa;
     private String ptj_solido_total;
 }

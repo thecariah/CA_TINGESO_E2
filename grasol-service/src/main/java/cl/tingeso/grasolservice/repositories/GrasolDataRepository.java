@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface GrasolDataRepository extends JpaRepository<GrasolDataEntity, String> {
+public interface GrasolDataRepository extends JpaRepository<GrasolDataEntity, Long> {
 
     //encontrar grasol por proveedor
     @Query("SELECT g FROM GrasolDataEntity g WHERE g.proveedor = :codigo")

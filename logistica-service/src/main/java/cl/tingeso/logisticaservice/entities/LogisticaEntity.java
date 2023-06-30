@@ -25,11 +25,12 @@ public class LogisticaEntity {
     private Integer dias_envio_leche;
     private double prom_diario_leche;
 
-    private double ptj_var_leche;
-    private double ptj_grasa;
+    private Integer ptj_grasa;
+    private Integer ptj_solidos;
+    /*
     private double ptj_var_grasa;
-    private double ptj_solidos;
     private double ptj_var_solidos;
+    private double ptj_var_leche;
 
     private double pago_leche;
     private double pago_grasa;
@@ -44,5 +45,5 @@ public class LogisticaEntity {
     private double pago_total;
     private double monto_retencion;
     private double monto_final;
-
+*/
 }
