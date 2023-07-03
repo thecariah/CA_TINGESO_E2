@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class AcopioDataService{
     @Autowired
-    private AcopioDataRepository acopioDataRepository;
+    AcopioDataRepository acopioDataRepository;
 
     public void guardarAcopio(String fecha, String turno, String proveedor, String kls_leche){
         AcopioDataEntity acopioData = new AcopioDataEntity();
