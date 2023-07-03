@@ -137,7 +137,15 @@ public class LogisticaService {
         double descuentos = reporte.getDcto_var_leche() + reporte.getDcto_var_grasa() + reporte.getDcto_var_solidos();
 
         reporte.setPago_total(pago_acopio_leche - descuentos);
-        reporte.setMonto_retencion((13 / 100) * reporte.getPago_total());
+
+        // valor retencion:
+        if (proveedor.getRetencion().equals("Si") && reporte.getPago_total() > 950000){
+            reporte.setMonto_retencion((13 / 100) * reporte.getPago_total());
+        }
+        else{
+            reporte.setMonto_retencion(0);
+        }
+
         reporte.setMonto_final(reporte.getPago_total() - reporte.getMonto_retencion());
 
         logisticaRepository.save(reporte);

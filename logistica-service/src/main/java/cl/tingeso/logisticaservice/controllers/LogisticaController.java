@@ -18,8 +18,8 @@ public class LogisticaController {
     LogisticaService logisticaService;
 
     @GetMapping("/logistica")
-    public ResponseEntity<List<LogisticaEntity>> planillas() throws ParseException {
-        logisticaService.reportePlanilla();
+    public ResponseEntity<List<LogisticaEntity>> getPlanillas() throws ParseException {
+        //logisticaService.reportePlanilla();
         List<LogisticaEntity> reportePlanillas = logisticaService.obtenerPlanillas();
 
         if (reportePlanillas.isEmpty()){
