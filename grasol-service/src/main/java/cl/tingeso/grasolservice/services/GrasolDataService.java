@@ -29,8 +29,8 @@ public class GrasolDataService {
         return grasolDataRepository.findAll();
     }
 
-    public GrasolDataEntity obtenerGrasolDeProveedor(String codigo){
-        return this.grasolDataRepository.findGrasol(codigo);
+    public List<GrasolDataEntity> obtenerGrasolesDeProveedor(String codigo){
+        return this.grasolDataRepository.findGrasoles(codigo);
     }
 
 }

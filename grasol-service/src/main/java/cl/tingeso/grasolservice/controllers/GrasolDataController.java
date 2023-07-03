@@ -24,13 +24,13 @@ public class GrasolDataController {
     }
 
     @GetMapping("/grasol/{codigo}")
-    public ResponseEntity<GrasolDataEntity> getGrasolByProveedor(@PathVariable("codigo") String codigo) {
-        GrasolDataEntity grasol = grasolDataService.obtenerGrasolDeProveedor(codigo);
+    public ResponseEntity<List<GrasolDataEntity>> getGrasolByProveedor(@PathVariable("codigo") String codigo) {
+        List<GrasolDataEntity> grasoles = grasolDataService.obtenerGrasolesDeProveedor(codigo);
 
-        if(grasol == null){
-            return ResponseEntity.notFound().build();
+        if(grasoles.isEmpty()){
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.ok(grasol);
+        return ResponseEntity.ok(grasoles);
     }
 
     @PostMapping("/grasol/new")

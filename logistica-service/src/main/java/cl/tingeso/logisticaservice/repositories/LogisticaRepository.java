@@ -6,12 +6,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface LogisticaRepository extends JpaRepository<LogisticaEntity, String> {
 
-    //encontrar planilla de logistica por proveedor
+    //encontrar planillas de logistica por proveedor
     @Query("SELECT p FROM LogisticaEntity p WHERE p.codigo = :codigo")
-    LogisticaEntity findPlanilla(@Param("codigo") String codigo);
+    List<LogisticaEntity> findPlanillasByProveedor(@Param("codigo") String codigo);
+
+    //encontrar planilla de logistica de un proveedor por la quincena
+    @Query("SELECT p FROM LogisticaEntity p WHERE p.codigo = :codigo AND p.quincena = :quincena")
+    LogisticaEntity findPlanillaProveedorByQuincena(@Param("codigo") String codigo, @Param("quincena") String quincena);
 
     //insertar codigo proveedor en planilla de logistica
     @Query(value = "insert into logistica_planilla(codigo) values(?)", nativeQuery = true)

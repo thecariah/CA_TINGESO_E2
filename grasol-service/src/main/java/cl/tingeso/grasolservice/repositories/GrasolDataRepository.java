@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface GrasolDataRepository extends JpaRepository<GrasolDataEntity, Long> {
 
-    //encontrar grasol por proveedor
+    //encontrar grasoles por proveedor
     @Query("SELECT g FROM GrasolDataEntity g WHERE g.proveedor = :codigo")
-    GrasolDataEntity findGrasol(@Param("codigo") String codigo);
+    List<GrasolDataEntity> findGrasoles(@Param("codigo") String codigo);
 }

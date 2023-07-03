@@ -21,13 +21,13 @@ public class LogisticaEntity {
     private String nombre;
     private String quincena;
 
-    private Integer total_leche;
+    private double total_leche;
     private Integer dias_envio_leche;
     private double prom_diario_leche;
 
-    private Integer ptj_grasa;
-    private Integer ptj_solidos;
-    /*
+    private double ptj_grasa;
+    private double ptj_solidos;
+
     private double ptj_var_grasa;
     private double ptj_var_solidos;
     private double ptj_var_leche;
@@ -45,5 +45,4 @@ public class LogisticaEntity {
     private double pago_total;
     private double monto_retencion;
     private double monto_final;
-*/
 }

@@ -1,1 +1,0 @@
-INSERT INTO logistica(codigo, nombre, categoria, retencion) VALUES('01820', 'Antillanca Carolina', 'A', 'No');
