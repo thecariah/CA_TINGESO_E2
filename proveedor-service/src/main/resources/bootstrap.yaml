@@ -1,18 +1,18 @@
 server:
-  port: 8084
+  port: 8082
 spring:
   devtools:
     restart:
       aditional-paths: src/main/java
   application:
-    name: acopio-service
+    name: proveedor-service
   cloud:
     config:
       enabled: true
       uri: http://localhost:8081
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/acopio?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:postgresql://localhost:5432/proveedor?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: postgres
     password: intihaku4523
   jpa:
