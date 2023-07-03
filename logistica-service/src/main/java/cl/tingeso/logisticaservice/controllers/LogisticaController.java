@@ -12,12 +12,12 @@ import java.text.ParseException;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/logistica")
 public class LogisticaController {
     @Autowired
     LogisticaService logisticaService;
 
-    @GetMapping("/logistica")
+    @GetMapping
     public ResponseEntity<List<LogisticaEntity>> getPlanillas() throws ParseException {
         //logisticaService.reportePlanilla();
         List<LogisticaEntity> reportePlanillas = logisticaService.obtenerPlanillas();

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/acopios")
 public class AcopioDataController {
     @Autowired
     AcopioDataService acopioDataService;
 
-    @GetMapping("/acopios/all")
+    @GetMapping("/all")
     public ResponseEntity<List<AcopioDataEntity>> getAllAcopios(){
         List<AcopioDataEntity> acopios = acopioDataService.obtenerAcopios();
         if(acopios.isEmpty()){
@@ -23,7 +23,7 @@ public class AcopioDataController {
         return ResponseEntity.ok(acopios);
     }
 
-    @GetMapping("/acopios/{codigo}/{fecha}/{turno}")
+    @GetMapping("/{codigo}/{fecha}/{turno}")
     public ResponseEntity<AcopioDataEntity> getAcopio(@PathVariable("codigo") String codigo,
                                                                  @PathVariable("fecha") String fecha,
                                                                  @PathVariable("turno") String turno){
@@ -35,7 +35,7 @@ public class AcopioDataController {
         return ResponseEntity.ok(acopio);
     }
 
-    @GetMapping("/acopios/{codigo}")
+    @GetMapping("/{codigo}")
     public ResponseEntity<List<AcopioDataEntity>> getAcopiosByProveedor(@PathVariable("codigo") String codigo) {
         List<AcopioDataEntity> acopios = acopioDataService.obtenerAcopiosDeProveedor(codigo);
         if(acopios.isEmpty()){
@@ -44,7 +44,7 @@ public class AcopioDataController {
         return ResponseEntity.ok(acopios);
     }
 
-    @GetMapping("/acopios/{codigo}/{fecha}")
+    @GetMapping("/{codigo}/{fecha}")
     public ResponseEntity<List<AcopioDataEntity>> getAcopiosProveedorByDate(@PathVariable("codigo") String codigo,
                                                                                @PathVariable("fecha") String fecha) {
         List<AcopioDataEntity> acopios = acopioDataService.obtenerAcopiosProveedorPorFecha(codigo, fecha);
@@ -55,7 +55,7 @@ public class AcopioDataController {
     }
 
 
-    @PostMapping("/acopios/new")
+    @PostMapping("/new")
     public String createAcopio(@RequestParam("fecha") String fecha,
                                @RequestParam("turno") String turno,
                                @RequestParam("proveedor") String proveedor,
@@ -65,7 +65,7 @@ public class AcopioDataController {
         return "redirect:/acopios/new";
     }
 
-    @GetMapping("/acopios/delete")
+    @GetMapping("/delete")
     public void deleteAcopios(){
         acopioDataService.deleteAcopios();
     }

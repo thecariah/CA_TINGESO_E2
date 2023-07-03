@@ -53,5 +53,4 @@ public class ProveedorService {
         return proveedorRepository.findRetencion(codigo);
     }
 
-    //... metodos de modelos ...
 }

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/grasol")
 public class GrasolDataController {
     @Autowired
     GrasolDataService grasolDataService;
 
-    @GetMapping("/grasol/all")
+    @GetMapping("/all")
     public ResponseEntity<List<GrasolDataEntity>> getAllGrasol(){
         List<GrasolDataEntity> grasoles = grasolDataService.obtenerGrasoles();
         if(grasoles.isEmpty()){
@@ -23,7 +23,7 @@ public class GrasolDataController {
         return ResponseEntity.ok(grasoles);
     }
 
-    @GetMapping("/grasol/{codigo}")
+    @GetMapping("/{codigo}")
     public ResponseEntity<List<GrasolDataEntity>> getGrasolByProveedor(@PathVariable("codigo") String codigo) {
         List<GrasolDataEntity> grasoles = grasolDataService.obtenerGrasolesDeProveedor(codigo);
 
@@ -33,7 +33,7 @@ public class GrasolDataController {
         return ResponseEntity.ok(grasoles);
     }
 
-    @PostMapping("/grasol/new")
+    @PostMapping("/new")
     public String createGrasol(@RequestParam("proveedor") String proveedor,
                                @RequestParam("ptj_grasa") String ptj_grasa,
                                @RequestParam("ptj_solido_total") String ptj_solido_total){
@@ -42,7 +42,7 @@ public class GrasolDataController {
         return "redirect:/grasol/new";
     }
 
-    @GetMapping("/grasol/delete")
+    @GetMapping("/delete")
     public void deleteGrasol(){
         grasolDataService.deleteGrasol();
     }

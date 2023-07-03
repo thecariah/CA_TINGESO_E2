@@ -9,22 +9,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/proveedores")
 public class ProveedorController {
     @Autowired
     ProveedorService proveedorService;
 
-    @GetMapping("/proveedores")
-    public String menuProveedores(){
-        return "proveedores-index";
-    }
-
-    @GetMapping ("/proveedores/new")
+    @GetMapping ("/new")
     public String nuevoProveedor(){
         return "proveedores-new";
     }
 
-    @GetMapping("/proveedores/all")
+    @GetMapping("/all")
     public ResponseEntity<List<ProveedorEntity>> getAllProveedores(){
         List<ProveedorEntity> proveedores = proveedorService.obtenerProveedores();
         if(proveedores.isEmpty()){
@@ -33,7 +28,7 @@ public class ProveedorController {
         return ResponseEntity.ok(proveedores);
     }
 
-    @GetMapping("/proveedores/{codigo}")
+    @GetMapping("/{codigo}")
     public ResponseEntity<ProveedorEntity> getProveedorByCodigo(@PathVariable("codigo") String codigo){
         ProveedorEntity proveedor = proveedorService.obtenerPorCodigo(codigo);
 
@@ -43,7 +38,7 @@ public class ProveedorController {
         return ResponseEntity.ok(proveedor);
     }
 
-    @PostMapping("/proveedores/new")
+    @PostMapping("/new")
     public String createProveedor(@RequestParam("codigo") String codigo,
                                   @RequestParam("nombre") String nombre,
                                   @RequestParam("categoria") String categoria,
@@ -53,11 +48,9 @@ public class ProveedorController {
         return "redirect:/proveedores/new";
     }
 
-    @GetMapping("/proveedores/delete")
+    @GetMapping("/delete")
     public void deleteProveedores(){
         proveedorService.eliminarProveedores();
     }
-
-    // ... mapping de modelos ...
 
 }
