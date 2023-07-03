@@ -1,0 +1,26 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka-service:8761/eureka/
+spring:
+devtools:
+  restart:
+    aditional-paths: src/main/java
+application:
+  name: acopio-service
+cloud:
+  config:
+    enabled: true
+    uri: http://localhost:8081
+datasource:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/acopio?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+  username: postgres
+  password: intihaku4523
+jpa:
+  show-sql: true
+  hibernate:
+    dialect: PostgreSQLDialect
+    ddl-auto: create
